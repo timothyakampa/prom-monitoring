@@ -1,0 +1,17 @@
+alertmanager:
+  image: prom/alertmanager
+  volumes:
+    - alertmanager.conf:/alertmanager/alertmanager.conf
+  port:
+    - "127.0.0.1:9093:9093"
+  command: -config.file /alertmanager/alertmanager.conf
+
+prometheus:
+  image: prom/prometheus
+  ports:
+    - "9090:9090"
+  volumes:
+    - prometheus.yml:/etc/prometheus/prometheus.yml
+    - alerts.conf:/etc/prometheus/alerts.conf
+  command: -alertmanager.url=http://127.0.0.1:9093
+
