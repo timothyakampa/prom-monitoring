@@ -8,7 +8,7 @@ global:
     monitor: 'cadvisor'
 
 rule_files:
-  - 'alerts.conf'
+  - '/etc/prometheus/alerts.conf'
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
